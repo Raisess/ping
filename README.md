@@ -1,4 +1,4 @@
-# Ping
+# Ping Route
 
 Small CLI to make test requests.
 

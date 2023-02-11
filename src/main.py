@@ -32,5 +32,5 @@ class CheckCommand(Command):
 
 
 if __name__ == "__main__":
-  cli = CLI("ping", [CheckCommand()])
+  cli = CLI("pingr", [CheckCommand()])
   cli.handle()

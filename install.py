@@ -3,7 +3,7 @@
 import os
 import site
 
-CLI_NAME = "ping"
+CLI_NAME = "pingr"
 
 BIN_PATH = f"/usr/local/bin/{CLI_NAME}"
 LIB_PATH = f"/usr/local/lib/{CLI_NAME}"
