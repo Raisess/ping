@@ -7,7 +7,11 @@ from service import Service, URL
 
 class CheckCommand(Command):
   def __init__(self):
-    super().__init__("check", "", args_len=1)
+    super().__init__(
+      "check",
+      "ping all services listed in JSON input file. E.g.: check <file>.json",
+      args_len=1
+    )
 
   def handle(self, args: list[str]) -> None:
     path = args[0]

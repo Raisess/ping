@@ -2,6 +2,16 @@
 
 Small CLI to make test requests.
 
+## Commands:
+
+**help**: get help for available commands.
+
+**check**: ping all services listed in JSON input file.
+
+```shell
+pingr check file.json
+```
+
 JSON input file template:
 
 ```json
