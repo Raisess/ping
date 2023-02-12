@@ -16,8 +16,8 @@ class URL:
 
 
 class Response:
-  def __init__(self, code: int, start_time: int, end_time: int):
-    self.__code = code
+  def __init__(self, http_response: HTTPResponse, start_time: int, end_time: int):
+    self.__code = http_response.getcode()
     self.__duration = end_time - start_time
 
   def success(self) -> bool:
@@ -38,7 +38,7 @@ class Service:
   def ping(self, path: str = "") -> Response:
     try:
       start_time = int(datetime.now().timestamp())
-      response: HTTPResponse = request.urlopen(self.__url.get_endpoint(path))
-      return Response(response.getcode(), start_time, int(datetime.now().timestamp()))
+      response = request.urlopen(self.__url.get_endpoint(path))
+      return Response(response, start_time, int(datetime.now().timestamp()))
     except:
       return Response(0, 0, 0)
