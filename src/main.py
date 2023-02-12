@@ -18,13 +18,12 @@ class CheckCommand(Command):
       services_info: list[dict] = json.load(json_file)
       for service_info in services_info:
         url = URL(service_info.get("protocol"), service_info.get("host"), service_info.get("port"))
-        print(url.get_endpoint(""))
         service = Service(service_info.get("name"), url)
         print(f">>> Pinging: \033[33m{service.get_name()}\033[0m...")
         for path in service_info.get("path_list") or []:
           print(f"\t Route: {path}")
           reponse = service.ping(path)
-          print(f"\t\t Elapsed time: {reponse.dureation()}ms")
+          print(f"\t\t Elapsed time: {reponse.duration()}ms")
           if reponse.success():
             print(f"\t\t Status: \033[32msuccess!\033[0m")
           else:

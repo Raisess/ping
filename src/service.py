@@ -23,7 +23,7 @@ class Response:
   def success(self) -> bool:
     return self.__code == 200
 
-  def dureation(self) -> int:
+  def duration(self) -> int:
     return self.__duration
 
 
@@ -34,9 +34,6 @@ class Service:
 
   def get_name(self) -> str:
     return self.__name
-
-  def get_url(self) -> str:
-    return self.__url.get_endpoint("")
 
   def ping(self, path: str = "") -> Response:
     try:
