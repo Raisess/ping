@@ -21,7 +21,7 @@ JSON input file template:
     "protocol": "http",
     "host": "localhost",
     "port": 8080,
-    "path_list": [
+    "routes": [
       "/health/ping",
       "/health/status"
     ]
