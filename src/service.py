@@ -14,10 +14,12 @@ class URL:
     self.__port = port
 
   def get_endpoint(self, path: str) -> str:
-    if self.__port:
-      return f"{self.__protocol}://{self.__host}:{self.__port}/{path}"
+    if not path.startswith("/"):
+      path = f"/{path}"
 
-    return f"{self.__protocol}://{self.__host}/{path}"
+    if self.__port:
+      return f"{self.__protocol}://{self.__host}:{self.__port}{path}"
+    return f"{self.__protocol}://{self.__host}{path}"
 
 
 class Response:
