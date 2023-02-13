@@ -1,4 +1,4 @@
-from datetime import datetime
+import time
 from http.client import HTTPResponse
 from urllib import request
 
@@ -31,7 +31,7 @@ class Response:
     return self.__code == 200
 
   def duration(self) -> int:
-    return self.__duration
+    return int(self.__duration / 1000000)
 
 
 class Service:
@@ -44,8 +44,8 @@ class Service:
 
   def ping(self, path: str = "") -> Response:
     try:
-      start_time = int(datetime.now().timestamp())
+      start_time = time.time_ns()
       response: HTTPResponse = request.urlopen(self.__url.get_endpoint(path))
-      return Response(response.getcode(), start_time, int(datetime.now().timestamp()))
+      return Response(response.getcode(), start_time, time.time_ns())
     except:
       return Response(0, 0, 0)
